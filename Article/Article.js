@@ -1,8 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [
-  {
-    title: 'Lambda School Students: "We\'re the best!"',
+const data = [{title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
         moff wicket tatooine luke.Solo wampa wampa calrissian yoda moff.Darth grievous darth gonk darth hutt.Darth baba skywalker
@@ -112,3 +110,53 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+function createArticle(contentObj) {
+  const articleDiv = document.createElement('div');
+  articleDiv.classList.add('article');
+  // console.log(articleDiv);
+
+  const articleTitle = document.createElement('h2');
+  this.title = contentObj.title;
+  articleTitle.textContent = this.title;
+  articleDiv.appendChild(articleTitle);
+  // console.log(title);
+
+  const date = document.createElement('p')
+  date.className = "date";
+  this.date = contentObj.date;
+  date.textContent = this.date;
+  articleDiv.appendChild(date);
+  // console.log(date);
+
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+
+  this.paragraphOne = contentObj.firstParagraph;
+  this.paragraphTwo = contentObj.secondParagraph;
+  this.paragraphThree = contentObj.thirdParagraph;
+
+  p1.textContent = this.paragraphOne;
+  p2.textContent = this.paragraphTwo;
+  p3.textContent = this.paragraphThree;
+
+  articleDiv.appendChild(p1);
+  articleDiv.appendChild(p2);
+  articleDiv.appendChild(p3);
+
+  const spanBtn = document.createElement('span');
+  spanBtn.classList = "expandButton";
+  articleDiv.appendChild(spanBtn);
+  // console.log(spanBtn);
+
+  spanBtn.addEventListener('click', (event) => {
+    articleDiv.classList.toggle("article-open");
+  });
+  console.log(articleDiv);
+  return articleDiv;
+}
+const allArticles = document.querySelector(".articles");
+// console.log(allArticles);
+const newComponent = data.map((data)=>{
+  allArticles.appendChild(createArticle(data));
+})
