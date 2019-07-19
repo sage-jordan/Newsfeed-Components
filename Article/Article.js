@@ -155,7 +155,7 @@ function createArticle(contentObj) {
   spanBtn.addEventListener('click', (event) => {
     articleDiv.classList.toggle("article-open");
   });
-  console.log(articleDiv);
+  // console.log(articleDiv);
   return articleDiv;
 }
 const allArticles = document.querySelector(".articles");
